@@ -1,4 +1,4 @@
-import CatInfo from "./CatInfo";
+import CatInfo from "./CatInfo/CatInfo";
 
 export default function CatList({ items }) {
   return (
