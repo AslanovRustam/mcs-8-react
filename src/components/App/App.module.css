@@ -1,0 +1,11 @@
+.container {
+  width: 800px;
+  background-color: #fff;
+}
+
+.icon {
+  display: block;
+  color: green;
+  width: 80px;
+  height: 80px;
+}
