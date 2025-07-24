@@ -1,71 +1,42 @@
-import { useState } from "react";
-import ClickCounter from "./ClickCounter";
-import CountDisplay from "./CountDisplay";
+// import axios from "axios";
+import { useLocalStorage } from "react-use";
+import Timer from "./Timer";
+import Sidebar from "./Sidebar";
 
 export default function App() {
-  const [clicks, setClicks] = useState(0);
-  const handleClick = () => setClicks(clicks + 1);
+  // const [character, setCharacter] = useState(null);
+  // const [count, setCount] = useState(1);
 
-  const [isTextVisible, setIsTextVisible] = useState(false);
-  const toggleTextVisibility = () => setIsTextVisible(!isTextVisible);
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://swapi.info/api/people/${count}`)
+  //     .then(res => setCharacter(res.data));
+  // }, [count]);
 
-  const [tags, setTags] = useState({
-    html: 0,
-    css: 0,
-    js: 0,
-  });
+  const [isOpen, setIsOpen] = useLocalStorage("sidebar-state", false);
 
-  const handleUpdateTags = tagName => {
-    setTags({
-      ...tags,
-      [tagName]: tags[tagName] + 1,
-    });
-  };
-
-  const [dates, setDates] = useState([]);
-
-  const addDate = () => {
-    setDates(prevDates => [...prevDates, Date.now()]);
-  };
-
-  const deleteDate = date => {
-    setDates(prevDates => prevDates.filter(prevDate => prevDate !== date));
-  };
+  const openSidebar = () => setIsOpen(true);
+  const closeSidebar = () => setIsOpen(false);
 
   return (
     <>
-      <button onClick={addDate}>Add date</button>
-      {dates.length > 0 && (
-        <ul>
-          {dates.map(date => (
-            <li key={date}>
-              {date}
-              <button onClick={() => deleteDate(date)}>-</button>
-            </li>
-          ))}
-        </ul>
-      )}
-      <hr />
-      <button onClick={() => handleUpdateTags("html")}>html {tags.html}</button>
-      <button onClick={() => handleUpdateTags("css")}>css {tags.css}</button>
-      <button onClick={() => handleUpdateTags("js")}>js {tags.js}</button>
-      <hr />
-      <CountDisplay count={clicks} />
-      <ClickCounter value={clicks} onUpdate={handleClick} />
-      <ClickCounter value={clicks} onUpdate={handleClick} />
-      <ClickCounter value={clicks} onUpdate={handleClick} />
-      <hr />
-      <button onClick={toggleTextVisibility}>
-        {isTextVisible ? "Hide" : "Show"}
-      </button>
-      {isTextVisible && (
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur
-          earum debitis laboriosam fuga nemo. Architecto aperiam fuga
-          perspiciatis consectetur sequi doloremque adipisci natus! Error hic,
-          dolore accusamus odio laudantium consectetur.
-        </p>
-      )}
+      {/* <button onClick={() => setCount(count + 1)}>Fetch next charater</button>
+      <pre>{JSON.stringify(character, null, 2)}</pre> */}
+      <button onClick={openSidebar}>Open sidebar</button>
+      {/* {isOpen && <Timer />} */}
+      {isOpen && <Sidebar onClose={closeSidebar} />}
     </>
   );
 }
+
+// const [isOpen, setIsOpen] = useState(() => {
+//   const savedState = window.localStorage.getItem("sidebar-state");
+//   if (savedState !== null) {
+//     return JSON.parse(savedState);
+//   }
+//   return false;
+// });
+
+// useEffect(() => {
+//   window.localStorage.setItem("sidebar-state", JSON.stringify(isOpen));
+// }, [isOpen]);
