@@ -6,7 +6,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
-  background-color: #fafafa;
-  color: #1f2023;
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
 }
