@@ -1,28 +1,27 @@
-// import UseMemoExample from "../UseMemoExample";
-// import RefBasics from "../RefBasics";
-// import Form from "../Form";
-// import Player from "../Player";
-// import RefStorage from "../RefStorage";
-// import Timer from "../Timer";
+import { Route, Routes } from "react-router-dom";
 import AppHeader from "../AppHeader/AppHeader";
-// import AbortRequestExample from "../AbortRequestExample";
 import css from "./App.module.css";
-import { useTheme } from "../../hooks/useTheme";
+import HomePage from "../../pages/HomePage";
+import DashboardPage from "../../pages/DashboardPage";
+import NotFoundPage from "../../pages/NotFoundPage";
+import UserDetailsPage from "../../pages/UserDetailsPage";
+import UserPosts from "../UserPosts/UserPosts";
+import UserTodos from "../UserTodos/UserTodos";
 
 export default function App() {
-  const { isDarkMode } = useTheme();
-
   return (
     <div className={css.container}>
-      <h1>Current theme: {isDarkMode ? "dark" : "light"}</h1>
-      {/* <UseMemoExample /> */}
-      {/* <RefBasics /> */}
-      {/* <Form /> */}
-      {/* <Player /> */}
-      {/* <RefStorage /> */}
-      {/* <Timer /> */}
-      {/* <AbortRequestExample /> */}
       <AppHeader />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/dashboard/:userId" element={<UserDetailsPage />}>
+          <Route path="posts" element={<UserPosts />} />
+          <Route path="todos" element={<UserTodos />} />
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </div>
   );
 }
