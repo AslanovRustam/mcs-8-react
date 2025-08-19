@@ -1,26 +1,48 @@
-# Заняття 10 - Маршрутизація
+# Заняття 11 - Бібліотека Redux
 
-- Рядок запиту
-  - Синтаксис параметрів рядка запиту
-  - Вилучення параметрів через `useSearchParams`
-  - Тип значень повертаємий методом `get`
-  - Зміна рядка запиту з `new URLSearchParams` та `setSearchParams`
-- Об'єкт місцезнаходження
-  - Хук `useLocation`
-  - Властивість `location.state`
-- Розділення коду
-  - `React.lazy` та `React.Suspense`
+## Управління станом
 
-## Users App
+- Глобальний стан та потік даних
+- Встановлення бібліотек
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [React Redux](https://react-redux.js.org/)
 
-- На сторінку списку користувачів додати пошук користувачів.
-- Значення пошуку зберігати у search params як параметр `searchText`.
-- Робити запити на `https://dummyjson.com/users/search?q=text` при зміні search
-  params.
-- Додати [дебаунс](https://github.com/xnimorz/use-debounce) щоб вирішити
-  проблему запитів на кожну зміну в інпуті
-- На сторінку деталей користувача додати `BackLink` - посилання на попередню
-  сторінку.
-- Використати `location.state` для передачі `location` при переході до сторінки
-  деталей при кліку по посиланню у картці користувача.
-- Додати розділення коду маршрутів
+## Стор (store)
+
+- Функція `configureStore`
+- Розбір Redux Devtools
+- Підписка на стор хуком `useSelector`
+- Функції-селектори
+
+## Екшени (actions)
+
+- Фабрики екшенів
+- Функція `createAction`
+- Відправлення екшенів з `useDispatch`
+
+## Редюсери (reducers)
+
+- Сігнатура редюсера
+- Кореневий редюсер
+- Чому за замовчуванням `return state`
+- Обробка екшенів
+
+## Практика
+
+- Усі налаштування Redux роби у папці `src/redux`
+- Створи стор у файлі `store.js`
+
+![UI завдання](https://raw.githubusercontent.com/goitacademy/react-course-track/11-redux/assets/task.gif)
+
+Так має виглядати початковий стан:
+
+```js
+{
+  balance: {
+    value: 0
+  },
+  locale: {
+    lang: "uk"
+  }
+}
+```
