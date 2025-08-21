@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
-import { changeLang } from "../redux/store";
+import { useDispatch } from "react-redux";
+import { changeLang, useLang } from "../redux/localeSlice";
 
 export default function LangSwitcher() {
   const dispatch = useDispatch();
-  const lang = useSelector(state => state.locale.lang);
+  const lang = useLang();
 
   const handleChange = event => {
     dispatch(changeLang(event.target.value));

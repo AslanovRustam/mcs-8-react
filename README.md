@@ -1,48 +1,23 @@
-# Заняття 11 - Бібліотека Redux
+# Заняття 12 - Бібліотека Redux Toolkit
 
-## Управління станом
+## Слайси стану
 
-- Глобальний стан та потік даних
-- Встановлення бібліотек
-- [Redux Toolkit](https://redux-toolkit.js.org/)
-- [React Redux](https://react-redux.js.org/)
+- Розділення коду кореневого редюсера на редюсери слайсів
+- Створення файлів слайсів `balanceSlice.js` та `localeSlice.js`
 
-## Стор (store)
+## Функція `createSlice`
 
-- Функція `configureStore`
-- Розбір Redux Devtools
-- Підписка на стор хуком `useSelector`
-- Функції-селектори
+- Створення слайса
+- Властивості `name` та `initialState`
+- Властивість `reducers` та case-редюсери
+- Експорт фабрик екшенів
+- Експорт кореневого редюсера
+- Використання `Immer` для оновлення стану у case-редюсерах слайсів
 
-## Екшени (actions)
+## Бібліотека [Redux Persist](https://www.npmjs.com/package/redux-persist)
 
-- Фабрики екшенів
-- Функція `createAction`
-- Відправлення екшенів з `useDispatch`
+- Створення конфігурації
+- Створення `persistor`
+- Додавання `PersistGate`
 
-## Редюсери (reducers)
-
-- Сігнатура редюсера
-- Кореневий редюсер
-- Чому за замовчуванням `return state`
-- Обробка екшенів
-
-## Практика
-
-- Усі налаштування Redux роби у папці `src/redux`
-- Створи стор у файлі `store.js`
-
-![UI завдання](https://raw.githubusercontent.com/goitacademy/react-course-track/11-redux/assets/task.gif)
-
-Так має виглядати початковий стан:
-
-```js
-{
-  balance: {
-    value: 0
-  },
-  locale: {
-    lang: "uk"
-  }
-}
-```
+<!-- https://create.kahoot.it/details/d1e38a43-a282-4df1-9cb1-fac328a66de9?drawer= -->
