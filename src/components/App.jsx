@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
 import Balance from "./Balance";
 import LangSwitcher from "./LangSwitcher";
+import { useLang } from "../redux/localeSlice";
 
 export default function App() {
-  const lang = useSelector(state => state.locale.lang);
+  const lang = useLang();
 
   return (
     <div>
