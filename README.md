@@ -1,23 +1,13 @@
-# Заняття 12 - Бібліотека Redux Toolkit
+# Заняття 13 - HTTP-запити з Redux Toolkit
 
-## Слайси стану
-
-- Розділення коду кореневого редюсера на редюсери слайсів
-- Створення файлів слайсів `balanceSlice.js` та `localeSlice.js`
-
-## Функція `createSlice`
-
-- Створення слайса
-- Властивості `name` та `initialState`
-- Властивість `reducers` та case-редюсери
-- Експорт фабрик екшенів
-- Експорт кореневого редюсера
-- Використання `Immer` для оновлення стану у case-редюсерах слайсів
-
-## Бібліотека [Redux Persist](https://www.npmjs.com/package/redux-persist)
-
-- Створення конфігурації
-- Створення `persistor`
-- Додавання `PersistGate`
-
-<!-- https://create.kahoot.it/details/d1e38a43-a282-4df1-9cb1-fac328a66de9?drawer= -->
+- Асинхронні операції
+- Форма стану слайса: loading, error, data
+- Оголошення операції `fetchTasks` через `createAsyncThunk`
+  - URL запиту: `https://62584f320c918296a49543e7.mockapi.io/tasks`
+  - Діспатч операції у компоненті при монтуванні
+  - Екшени операціії: pending, fulfilled, rejected
+  - Обробка результату операцій у слайсі (`extraReducers`)
+  - Обробка запиту, що завершився з помилкою
+- Операції `addTask` та `deleteTask`
+  - Діспатч операцій у компонентах
+  - Обробка результату операцій у слайсі
